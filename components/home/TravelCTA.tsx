@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react"
 
 export default function TravelCTA() {
   return (
-    <section className="relative isolate flex min-h-[360px] items-center overflow-hidden bg-slate-950 text-center text-white">
+    <section className="relative isolate flex min-h-90 items-center overflow-hidden bg-slate-950 text-center text-white">
       <Image
         src="/assets/CTA.png"
         alt=""
@@ -13,7 +13,7 @@ export default function TravelCTA() {
         className="object-cover object-center"
       />
       <div className="absolute inset-0 bg-slate-950/70" />
-      <div className="absolute inset-0 bg-gradient-to-r from-cyan-950/20 via-transparent to-cyan-950/20" />
+      <div className="absolute inset-0 bg-linear-to-r from-cyan-950/20 via-transparent to-cyan-950/20" />
 
       <div className="relative z-10 mx-auto w-full max-w-3xl px-4 py-16 sm:px-6">
         <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">

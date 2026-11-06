@@ -23,7 +23,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="fixed top-0 right-0 left-0 z-[100] grid h-16 grid-cols-2 items-center bg-white/95 px-4 shadow-[0_4px_20px_rgba(15,23,42,0.08)] backdrop-blur-md sm:px-6 lg:grid-cols-3">
+    <nav className="fixed top-0 right-0 left-0 z-100 grid h-16 grid-cols-2 items-center bg-white/95 px-4 shadow-[0_4px_20px_rgba(15,23,42,0.08)] backdrop-blur-md sm:px-6 lg:grid-cols-3">
       {/* Desktop Navigation */}
       <div className="hidden items-center gap-5 lg:flex">
         {navLinks.map((link) => (

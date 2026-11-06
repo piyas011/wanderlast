@@ -67,8 +67,8 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden border-t border-cyan-900/20 bg-[#071b32] text-slate-300">
-      <div className="absolute top-0 left-1/4 h-px w-1/2 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
-      <div className="mx-auto w-full max-w-[1440px] px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
+      <div className="absolute top-0 left-1/4 h-px w-1/2 bg-linear-to-r from-transparent via-cyan-400/50 to-transparent" />
+      <div className="mx-auto w-full max-w-360 px-4 py-14 sm:px-6 lg:px-8 lg:py-16">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.35fr_0.75fr_0.75fr_1fr_0.75fr]">
           <div>
             <Link

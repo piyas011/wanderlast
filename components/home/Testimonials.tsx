@@ -47,7 +47,7 @@ const testimonials: Testimonial[] = [
 export default function Testimonials() {
   return (
     <section className="bg-white py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-360 px-4 sm:px-6 lg:px-8">
         <header className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
             What Travelers Say
@@ -109,7 +109,7 @@ export default function Testimonials() {
                       />
                     ) : (
                       <div
-                        className={`flex h-full items-center justify-center bg-gradient-to-br ${testimonial.accent} text-2xl font-bold text-white`}
+                        className={`flex h-full items-center justify-center bg-linear-to-br ${testimonial.accent} text-2xl font-bold text-white`}
                         aria-label={`Portrait placeholder for ${testimonial.name}`}
                       >
                         {testimonial.initials}
