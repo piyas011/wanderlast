@@ -1,14 +1,14 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import { Josefin_Sans } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
+import Navbar from "@/components/home/Navbar"
+import Footer from "@/components/layout/Footer"
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'})
-
-const fontMono = Geist_Mono({
+const josefinSans = Josefin_Sans({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-josefin-sans",
+  display: "swap",
 })
 
 export default function RootLayout({
@@ -20,10 +20,14 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
+      className={`${josefinSans.variable} font-sans antialiased`}
     >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="flex min-h-screen flex-col">
+        <ThemeProvider>
+          <Navbar />
+          <main className="flex flex-1 flex-col pt-16">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )
