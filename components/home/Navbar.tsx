@@ -8,8 +8,8 @@ import { Menu, X, UserRound } from "lucide-react"
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Destinations", href: "/destinations" },
+  { name: "Add Destinations", href: "/add-destinations" },
   { name: "My Bookings", href: "/my-bookings" },
-  { name: "Admin", href: "/admin" },
 ]
 
 export default function Navbar() {
