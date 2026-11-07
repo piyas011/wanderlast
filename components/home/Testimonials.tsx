@@ -106,6 +106,7 @@ export default function Testimonials() {
                         fill
                         sizes="(max-width: 768px) 112px, 150px"
                         className="object-cover"
+                        quality={95}
                       />
                     ) : (
                       <div

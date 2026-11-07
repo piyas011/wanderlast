@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { CalendarDays, Clock3, MapPin } from "lucide-react"
+import HighQualityImage from "@/components/ui/high-quality-image"
 
 export interface Destination {
   _id?: string
@@ -11,6 +12,8 @@ export interface Destination {
   departureDate: string
   imageUrl: string
   description: string
+  rating?: number | string
+  highlights?: string[] | string
 }
 
 type DestinationCardProps = {
@@ -45,12 +48,15 @@ export default function DestinationCard({
       id={anchorId}
       className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-[0_8px_30px_rgba(15,23,42,0.08)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(8,145,178,0.14)]"
     >
-      <div
-        role="img"
-        aria-label={destination.destinationName}
-        className="h-56 bg-cover bg-center"
-        style={{ backgroundImage: `url("${destination.imageUrl}")` }}
-      />
+      <div className="relative h-56 overflow-hidden bg-slate-100">
+        <HighQualityImage
+          src={destination.imageUrl}
+          alt={destination.destinationName}
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          quality={95}
+          className="object-cover"
+        />
+      </div>
 
       <div className="p-5">
         <div className="flex items-center gap-1.5 text-xs font-semibold text-cyan-700">
@@ -91,7 +97,7 @@ export default function DestinationCard({
           </div>
 
           <Link
-            href={`/destinations?destination=${encodeURIComponent(destination.destinationName)}#${anchorId}`}
+            href={`/destinations/${destination._id}`}
             className="mt-5 inline-flex min-h-10 w-full items-center justify-center rounded-md bg-cyan-600 px-4 text-sm font-bold text-white transition hover:bg-cyan-700 focus-visible:ring-4 focus-visible:ring-cyan-200 focus-visible:outline-none"
           >
             Book Now

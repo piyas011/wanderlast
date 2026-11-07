@@ -1,4 +1,5 @@
 import Link from "next/link"
+import HighQualityImage from "@/components/ui/high-quality-image"
 import {
   MapPin,
   CalendarDays,
@@ -12,11 +13,13 @@ export default function Header() {
   return (
     <header className="relative min-h-162.5 overflow-hidden bg-slate-900 text-white">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/assets/Banner.png')",
-        }}
+      <HighQualityImage
+        src="/assets/Banner.png"
+        alt=""
+        priority
+        quality={95}
+        sizes="100vw"
+        className="object-cover"
       />
 
       {/* Dark Overlay */}

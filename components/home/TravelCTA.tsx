@@ -11,6 +11,8 @@ export default function TravelCTA() {
         fill
         sizes="100vw"
         className="object-cover object-center"
+        quality={95}
+        priority={false}
       />
       <div className="absolute inset-0 bg-slate-950/70" />
       <div className="absolute inset-0 bg-linear-to-r from-cyan-950/20 via-transparent to-cyan-950/20" />
