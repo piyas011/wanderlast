@@ -68,7 +68,7 @@ export default function Navbar() {
         </Link>
 
         <Link
-          href="/signup"
+          href="/sign-up"
           className="bg-cyan-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-cyan-700"
         >
           Sign Up
@@ -126,7 +126,7 @@ export default function Navbar() {
               </Link>
 
               <Link
-                href="/signup"
+                href="/sign-up"
                 onClick={() => setMenuOpen(false)}
                 className="bg-cyan-600 py-3 text-center text-sm font-semibold text-white"
               >
