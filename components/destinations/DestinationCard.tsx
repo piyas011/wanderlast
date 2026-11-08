@@ -1,6 +1,6 @@
-import Link from "next/link"
 import { CalendarDays, Clock3, MapPin } from "lucide-react"
 import HighQualityImage from "@/components/ui/high-quality-image"
+import Booking from "@/components/booking/Booking"
 
 export interface Destination {
   _id?: string
@@ -96,12 +96,7 @@ export default function DestinationCard({
             </div>
           </div>
 
-          <Link
-            href={`/destinations/${destination._id}`}
-            className="mt-5 inline-flex min-h-10 w-full items-center justify-center rounded-md bg-cyan-600 px-4 text-sm font-bold text-white transition hover:bg-cyan-700 focus-visible:ring-4 focus-visible:ring-cyan-200 focus-visible:outline-none"
-          >
-            Book Now
-          </Link>
+          {destination._id ? <Booking destination={destination} /> : null}
         </div>
       </div>
     </article>

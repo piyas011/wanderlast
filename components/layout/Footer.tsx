@@ -10,9 +10,7 @@ const quickLinks = [
 ]
 
 const supportLinks = [
-  { label: "Help Center", href: "/help-center" },
-  { label: "Terms of Service", href: "/terms-of-service" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Contact Support", href: "mailto:hello@wanderlast.example" },
 ]
 
 function FacebookIcon() {

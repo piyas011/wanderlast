@@ -2,6 +2,9 @@ import DestinationDetails from "@/components/destinations/DestinationDetails"
 import type { Destination } from "@/components/destinations/DestinationCard"
 import Link from "next/link"
 import { ArrowLeft, RotateCcw } from "lucide-react"
+import { ObjectId } from "mongodb"
+import { notFound } from "next/navigation"
+import { database } from "@/lib/mongodb"
 
 export default async function DestinationDetailsPage({
   params,
@@ -9,21 +12,29 @@ export default async function DestinationDetailsPage({
   params: Promise<{ id: string }>
 }) {
   const { id } = await params
+  if (!ObjectId.isValid(id)) {
+    notFound()
+  }
+
   let destination: Destination | null = null
   let loadError = ""
 
   try {
-    const response = await fetch(`http://localhost:5000/destination/${id}`, {
-      cache: "no-store",
+    const record = await database.collection("destinations").findOne({
+      _id: new ObjectId(id),
     })
-
-    if (response.status === 404) {
+    if (!record) {
       loadError = "not-found"
-    } else if (!response.ok) {
-      loadError = "error"
     } else {
-      destination = (await response.json()) as Destination
-      if (!destination) loadError = "not-found"
+      destination = {
+        ...record,
+        _id: record._id.toHexString(),
+        price: String(record.price ?? ""),
+        rating:
+          record.rating === undefined || record.rating === null
+            ? undefined
+            : String(record.rating),
+      } as Destination
     }
   } catch {
     loadError = "error"

@@ -1,5 +1,6 @@
 import DestinationExplorer from "@/components/destinations/DestinationExplorer"
 import type { Destination } from "@/components/destinations/DestinationCard"
+import { database } from "@/lib/mongodb"
 
 type DestinationsPageProps = {
   searchParams: Promise<{
@@ -17,15 +18,20 @@ export default async function AllDestinationsPage({
   let loadFailed = false
 
   try {
-    const response = await fetch("http://localhost:5000/all-destinations", {
-      cache: "no-store",
-    })
-
-    if (!response.ok) {
-      throw new Error("Failed to load destinations")
-    }
-
-    destinations = (await response.json()) as Destination[]
+    const records = await database
+      .collection("destinations")
+      .find({})
+      .sort({ _id: -1 })
+      .toArray()
+    destinations = records.map((record) => ({
+      ...record,
+      _id: record._id.toHexString(),
+      price: String(record.price ?? ""),
+      rating:
+        record.rating === undefined || record.rating === null
+          ? undefined
+          : String(record.rating),
+    })) as Destination[]
   } catch {
     loadFailed = true
   }

@@ -33,6 +33,7 @@ import {
 } from "@/components/ui/alert-dialog"
 import type { Destination } from "./DestinationCard"
 import { formatDepartureDate } from "./DestinationCard"
+import Booking from "../booking/Booking"
 
 export default function DestinationDetails({
   destination,
@@ -48,10 +49,9 @@ export default function DestinationDetails({
 
     setIsDeleting(true)
     try {
-      const response = await fetch(
-        `http://localhost:5000/destination/${destination._id}`,
-        { method: "DELETE" }
-      )
+      const response = await fetch(`/api/destinations/${destination._id}`, {
+        method: "DELETE",
+      })
 
       if (!response.ok) {
         throw new Error("Failed to delete destination")
@@ -264,12 +264,8 @@ export default function DestinationDetails({
                   </div>
                 </div>
 
-                <button
-                  type="button"
-                  className="mt-5 h-11 w-full rounded-md bg-cyan-600 text-sm font-bold text-white transition hover:bg-cyan-700 focus-visible:ring-4 focus-visible:ring-cyan-200 focus-visible:outline-none"
-                >
-                  Book Now
-                </button>
+                {/* Destinations Booking */}
+                <Booking destination={destination} />
 
                 <div className="mt-4 space-y-2 text-xs text-slate-500">
                   <div className="flex items-center gap-2">

@@ -96,9 +96,7 @@ export default function AddDestinationForm({
 
     try {
       const response = await fetch(
-        isEditing
-          ? `http://localhost:5000/destination/${editId}`
-          : "http://localhost:5000/add-destination",
+        isEditing ? `/api/destinations/${editId}` : "/api/destinations",
         {
           method: isEditing ? "PUT" : "POST",
           headers: {
